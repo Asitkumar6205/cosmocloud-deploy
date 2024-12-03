@@ -1,0 +1,32 @@
+# values.yaml
+
+backend:
+  image: "shreybatra/sample-backend"
+  replicaCount: 1
+  env:
+    REDIS_URI: "redis://redis-svc:6379"
+
+frontend:
+  image: "shreybatra/sample-frontend"
+  replicaCount: 1
+  env:
+    BACKEND_URL: "http://backend-svc:8000"
+
+redis:
+  image: "redis"
+  replicaCount: 1
+
+services:
+  backend:
+    type: ClusterIP
+    port: 8000
+    name: backend-svc
+  frontend:
+    type: NodePort
+    port: 5173
+    nodePort: 31000
+    name: frontend-svc
+  redis:
+    type: ClusterIP
+    port: 6379
+    name: redis-svc
