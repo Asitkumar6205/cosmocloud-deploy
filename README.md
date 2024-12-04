@@ -85,8 +85,11 @@ Helm is a Kubernetes package manager.
 
 ```bash
     # Access frontend on localhost:5175
-    kubectl port-forward service/frontend-svc 5175:5173 
+    kubectl port-forward service/frontend-svc 5175:5173
 
     # Access backend on localhost:8000
     kubectl port-forward service/backend-svc 8000:8000
 ```
+![frontend](./image1.jpg)
+
+![backend](./image2.jpg)
